@@ -7,17 +7,14 @@
   <title>Document</title>
 </head>
 <body>
-  
-  <h1>{{ title }} is working!</h1>
 
-  {% for obj in object_list %}
-  
-  <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a><br>
-  {{ obj.content }}<br>
-  {{ obj.timestamp }}<br>
-  <hr>
+  <h1>Create a new post</h1>
 
-  {% endfor %}
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create post">
+  </form>
 
 </body>
 </html>
